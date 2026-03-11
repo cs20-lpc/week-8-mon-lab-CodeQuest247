@@ -11,6 +11,96 @@ int main() {
 
     for (int i = 0; i < 10; i++) {
         stackA.push(i);
+        cout << i << " ";
+    }
+
+    if (stackA.isFull()) {
+        cout << "Stack A is full! ";
+    }
+
+    cout << "Stack A length: " << stackA.getLength();
+
+    ArrayStack<int> stackB(stackA);
+    cout << "Stack B length: " << stackB.getLength();
+
+    try {
+        stackB.push(10);
+    }
+    catch (string error) {
+        cout << error;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Popping " << stackB.peek() << " from stack B";
+        stackB.pop();
+    }
+
+    cout << "Stack B length: " << stackB.getLength();
+
+    stackB.clear();
+    if (stackB.isEmpty()) {
+        cout << "Stack B is now empty after being cleared";
+    }
+
+    try {
+        stackB.pop();
+    }
+    catch (string error) {
+        cout << error;
+    }
+
+    try {
+        stackB.peek();
+    }
+    catch (string error) {
+        cout << error;
+    }
+
+    ArrayStack<int> stackC(10);
+    stackC = stackA;
+
+    cout << "Stack A length: " << stackA.getLength();
+    cout << "Stack C length: " << stackC.getLength();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#include <iostream>
+#include <string>
+#include "ArrayStack.hpp"
+
+using namespace std;
+
+int main() {
+    ArrayStack<int> stackA(10);
+
+    for (int i = 0; i < 10; i++) {
+        stackA.push(i);
         cout << i;
         if (i < 9) {
             cout << " ";
@@ -68,44 +158,7 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
