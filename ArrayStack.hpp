@@ -3,7 +3,9 @@
 
 #include "Stack.hpp"
 #include <iostream>
+# include <string>
 using namespace std;
+
 
 template <typename T>
 class ArrayStack : public Stack<T> {
