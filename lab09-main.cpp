@@ -141,7 +141,7 @@ int main() {
 
         try {
             ArrayStack<string> fullStack(2);
-            fullStack.push("UC Davis");
+            fullStack.push("SCU");
             fullStack.push("USD");
             cout << "Trying to push onto a full stack...\n";
             fullStack.push("USC");
