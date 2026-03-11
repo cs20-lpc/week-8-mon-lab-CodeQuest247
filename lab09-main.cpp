@@ -1,4 +1,4 @@
-// Compilation line: g++ -std=c++17 main.cpp -o main
+// Compilation line: g++ -std=c++17 lab09-main.cpp -o main
 
 #include <iostream>
 #include <string>
@@ -6,6 +6,110 @@
 
 using namespace std;
 
+int main() {
+    ArrayStack<int> stackA(10);
+
+    for (int i = 0; i < 10; i++) {
+        stackA.push(i);
+        cout << i;
+        if (i < 9) {
+            cout << " ";
+        }
+    }
+    cout << endl;
+
+    if (stackA.isFull()) {
+        cout << "Stack A is full!" << endl;
+    }
+
+    cout << "Stack A length: " << stackA.getLength() << endl;
+
+    ArrayStack<int> stackB(stackA);
+    cout << "Stack B length: " << stackB.getLength() << endl;
+
+    try {
+        stackB.push(10);
+    }
+    catch (string error) {
+        cout << error << endl;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Popping " << stackB.peek() << " from stack B" << endl;
+        stackB.pop();
+    }
+
+    cout << "Stack B length: " << stackB.getLength() << endl;
+
+    stackB.clear();
+    if (stackB.isEmpty()) {
+        cout << "Stack B is now empty after being cleared" << endl;
+    }
+
+    try {
+        stackB.pop();
+    }
+    catch (string error) {
+        cout << error << endl;
+    }
+
+    try {
+        stackB.peek();
+    }
+    catch (string error) {
+        cout << error << endl;
+    }
+
+    ArrayStack<int> stackC(10);
+    stackC = stackA;
+
+    cout << "Stack A length: " << stackA.getLength() << endl;
+    cout << "Stack C length: " << stackC.getLength() << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // needed because rotate uses Stack<T>::RIGHT and Stack<T>::LEFT
 template <typename T>
 void testRotate(ArrayStack<T>& stack, const string& stackName) {
@@ -168,3 +272,4 @@ int main() {
 
     return 0;
 }
+*/
